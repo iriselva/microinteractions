@@ -9,6 +9,7 @@ export default function List() {
 
     return (
         <div className="container">
+            <p>List</p>
             <AnimateSharedLayout>
                 <ul>
                     {colors.map(color => (

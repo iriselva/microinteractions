@@ -13,7 +13,8 @@ function Logo(props) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             {...props}
-            animate={{ rotate: 360 }}
+            animate={{ 
+              rotate: 360 }}
             transition={{ duration: 2}}
                 >
             <path fill="#C4C4C4" d="M14 8h52v52H14z" 

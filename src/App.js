@@ -3,6 +3,7 @@ import './App.css';
 import Loader from './components/Loader'
 import Logo from './components/Logo'
 import List from './components/List';
+import Menu from './components/Menu';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Loader />
         <Logo />
         <List />
+        <Menu />
       </header>
     </div>
   );
