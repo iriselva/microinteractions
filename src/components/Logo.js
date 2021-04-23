@@ -19,15 +19,15 @@ function Logo(props) {
                 >
             <path fill="#C4C4C4" d="M14 8h52v52H14z" 
             />
-            <circle cx={2} cy={48} r={2} fill="#373737" />
-            <circle cx={2} cy={60} r={2} fill="#373737" />
-            <circle cx={2} cy={72} r={2} fill="#373737" />
-            <circle cx={14} cy={48} r={2} fill="#373737" />
-            <circle cx={14} cy={60} r={2} fill="#373737" />
-            <circle cx={14} cy={72} r={2} fill="#373737" />
-            <circle cx={26} cy={48} r={2} fill="#373737" />
-            <circle cx={26} cy={60} r={2} fill="#373737" />
-            <circle cx={26} cy={72} r={2} fill="#373737" />
+              <circle cx={2} cy={48} r={2} fill="#373737" />
+              <circle cx={2} cy={60} r={2} fill="#373737" />
+              <circle cx={2} cy={72} r={2} fill="#373737" />
+              <circle cx={14} cy={48} r={2} fill="#373737" />
+              <circle cx={14} cy={60} r={2} fill="#373737" />
+              <circle cx={14} cy={72} r={2} fill="#373737" />
+              <circle cx={26} cy={48} r={2} fill="#373737" />
+              <circle cx={26} cy={60} r={2} fill="#373737" />
+              <circle cx={26} cy={72} r={2} fill="#373737" />
             <path stroke="#373737" strokeWidth={2} d="M73 42V0M45 42V0M59 42V0" />
             </motion.svg>
       </div>
