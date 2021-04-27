@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 
 function Logo(props) {
   return (
-      <div className="container">
-          <p>Logo</p>
+      <div>
         <motion.svg
             width={74}
             height={74}
@@ -16,6 +15,9 @@ function Logo(props) {
             animate={{ 
               rotate: 360 }}
             transition={{ duration: 2}}
+            drag
+            dragConstraints={{left: 0, top: 0, right: 0, bottom: 0}}
+            dragElastic={1}
                 >
             <path fill="#C4C4C4" d="M14 8h52v52H14z" 
             />

@@ -1,66 +1,108 @@
-import React, { useState } from 'react'
-import { motion, useCycle } from "framer-motion";
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, useCycle, AnimatePresence } from "framer-motion";
+import styled from "styled-components";
 
-const variants = {
-    open: {
-        opacity: 1, 
-        x:0,
-        transition: {
-        }
-    },
-    closed: {opacity: 1, x: "-100"}
-}
+const Burger = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  align-items: center;
+`;
 
-function Hamburger({toggle}){
-    return (
-        <motion.div 
+const Line = styled(motion.div)`
+  width: 42px;
+  height: 2px;
+  background-color: #373737;
+`;
+
+const Navbar = styled(motion.ul)`
+  flex-direction: column;
+  padding: 33px 0 0 0;
+  margin-top: 16px;
+`;
+
+const NavbarItem = styled(motion.li)`
+  padding: 1rem;
+  border: 1px solid #373737;
+  cursor: pointer;
+  list-style: none;
+  width: 121px;
+`;
+
+function Hamburger({ toggle, children, isOpen }) {
+  return (
+    <>
+      <Burger
+        layout
         onClick={toggle}
-        className="hamburger"
-        variants={variants}
-        whileHover= {{
-            scale: 1.2,
-            transition: { duration: 0.5 }
+        whileHover={{
+          scale: 1.2,
+          transition: { duration: 0.3 },
         }}
-        >
-            <motion.div className="line"
-                variants={{open: {y:10}, closed:{y:1}}}
-            />
-            <div className="line"/>
-            <motion.div className="line"
-                variants={{open: {y:-10}, closed:{y:1}}}
-            />
-        </motion.div>
-    )
+      >
+        <Line variants={{ open: { y: 10 }, closed: { y: 0 } }} />
+        <div className="line" />
+        <Line variants={{ open: { y: -10 }, closed: { y: 0 } }} />
+      </Burger>
+      <AnimatePresence>{isOpen && children}</AnimatePresence>
+    </>
+  );
 }
+
+const itemVariants = {
+  open: {
+    opacity: 1,
+  },
+  closed: {
+    opacity: 0,
+  },
+};
+const listVariant = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.14, staggerDirection: -1 },
+  },
+};
 
 export default function Menu() {
-    const [isOpen, setIsOpen] = useCycle(false, true)
-    console.log(isOpen);
+  const [isOpen, setIsOpen] = useCycle(false, true);
+  console.log(isOpen);
 
-    return (
-        <motion.div className="container"         
-            animate={isOpen ? "open" : "closed"}
+  return (
+    <motion.div
+      //style={{ minHeight: 300, justifyContent: "initial" }}
+      animate={isOpen ? "open" : "closed"}
+    >
+      <Hamburger toggle={() => setIsOpen()} isOpen={isOpen}>
+        <motion.div
+          layout
+          style={{ overflow: "hidden" }}
+          initial={{ height: 0 }}
+          animate={{ height: "auto", transition: { duration: 0.3 } }}
+          exit={{ height: 0, transition: { duration: 0.3 } }}
         >
-            <Hamburger toggle={() => setIsOpen()} />       
-            <motion.div 
-                initial={false}
-                variants={
-                    {open:{scale: 1, transition:{duration: 0.8}}, 
-                    closed: {scale: 0, transition:{duration: 0.5}}}}
-                >
-                    <ul className="navbar">
-                        <motion.li
-                            whileHover={{backgroundColor: "#E7BB7A"}}
-                        >One</motion.li>
-                        <motion.li
-                            whileHover={{backgroundColor: "#E7BB7A"}}
-                        >Two</motion.li>
-                        <motion.li
-                            whileHover={{backgroundColor: "#E7BB7A"}}
-                        >Three</motion.li>
-    
-                    </ul>
-            </motion.div>
+          <Navbar
+            variants={listVariant}
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            {["Shop", "Cart"].map((item, i) => (
+              <NavbarItem
+                key={item}
+                variants={itemVariants}
+                whileHover={{ backgroundColor: "#E7BB7A" }}
+              >
+                <a href={item}>{item}</a>
+              </NavbarItem>
+            ))}
+          </Navbar>
         </motion.div>
-    )
+      </Hamburger>
+    </motion.div>
+  );
 }
