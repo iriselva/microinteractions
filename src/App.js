@@ -5,10 +5,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Animations from "./pages/Animations";
 import Confirm from "./pages/Confirm";
-import Products from "./pages/Order";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import Play from "./pages/Play";
 import {
   removeNotebook,
   addNotebook,
@@ -52,9 +52,6 @@ function App() {
                 <Route exact path="/">
                   <Home />
                 </Route>
-                <Route path="/Order">
-                  <Products />
-                </Route>
                 <Route path="/shop">
                   <Shop
                     addToCart={(notebook) => {
@@ -80,6 +77,9 @@ function App() {
                 </Route>
                 <Route path="/confirm">
                   <Confirm />
+                </Route>
+                <Route path="/play">
+                  <Play />
                 </Route>
               </Switch>
             </AnimatePresence>

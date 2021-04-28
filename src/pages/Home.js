@@ -12,26 +12,32 @@ const HomeContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin: auto;
+  padding: 4rem 0;
 `;
 
 const IntroText = styled.div`
   position: absolute;
-  left: -50px;
-  top: -50px;
+  left: 32px;
+  top: 23px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 200px;
 `;
 
 const ImageContainer = styled.div`
   display: flex;
   position: absolute;
   right: -60px;
-  bottom: -60px;
+  bottom: 10px;
   justify-content: center;
   align-items: center;
   align-content: center;
-}
+`;
+
+const Arrows = styled(motion.div)`
+  cursor: pointer;
+  font-size: 18px;
 `;
 
 const buttonVariants = {
@@ -92,14 +98,18 @@ export default function Home() {
       </IntroText>
 
       <ImageContainer>
-        <p
+        <Arrows
         onClick={() => setNextColor(-1)}
-        >◀</p>
+        whileHover={{scale: 1.1, x: -2}}
+        >◀</Arrows>
         <Book 
         height={300}
         color={colors[bookColorIndex]?.value}
         />
-        <p onClick={() => setNextColor(1)}>▶</p>
+        <Arrows
+        onClick={() => setNextColor(1)}
+        whileHover={{scale: 1.1, x: 2}}
+        >▶</Arrows>
       </ImageContainer>
     </HomeContainer>
   );

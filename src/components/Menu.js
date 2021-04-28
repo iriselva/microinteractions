@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 
@@ -70,8 +69,6 @@ const listVariant = {
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useCycle(false, true);
-  console.log(isOpen);
-
   return (
     <motion.div
       //style={{ minHeight: 300, justifyContent: "initial" }}
@@ -91,7 +88,7 @@ export default function Menu() {
             animate="open"
             exit="closed"
           >
-            {["Shop", "Cart"].map((item, i) => (
+            {["Shop", "Cart", "Play"].map((item, i) => (
               <NavbarItem
                 key={item}
                 variants={itemVariants}

@@ -1,7 +1,6 @@
 import React from "react";
 import Loader from "../components/Loader";
 import Logo from "../components/Logo";
-import List from "../components/List";
 import Menu from "../components/Menu";
 import Dropdown from "../components/Dropdown";
 import Notification from "../components/Notification";

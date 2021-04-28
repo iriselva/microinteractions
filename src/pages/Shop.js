@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import List from "../components/List";
 import Book from "../components/Book";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import PaperStyle from "../components/PaperStyle";
-import Dropdown from '../components/Dropdown'
-import Notification from '../components/Notification'
-
+import Dropdown from "../components/Dropdown";
+import Notification from "../components/Notification";
 
 const ShopContainer = styled.div`
   display: flex;
@@ -51,22 +48,22 @@ const ButtonFrame = styled.div`
 export default function Shop({ addToCart }) {
   const [notebook, setNotebook] = useState({ color: null, paper: null });
   const addColor = (color) => {
-    setNotebook(current => ({ ...current, color }));
-  }
+    setNotebook((current) => ({ ...current, color }));
+  };
 
   const addPaper = (paper) => {
-    setNotebook(current => ({ ...current, paper }));
-  }
+    setNotebook((current) => ({ ...current, paper }));
+  };
 
   return (
     <ShopContainer>
       <LeftContainer>
         <Book color={notebook?.color?.value} />
-        <Dropdown/>
+        <Dropdown />
       </LeftContainer>
       <RightContainer>
         <FrameItem>
-          <h3>Classic Notebook  |  29$</h3>
+          <h3>Classic Notebook | 29$</h3>
         </FrameItem>
         <FrameItem>
           <h4>Choose color</h4>
@@ -81,9 +78,7 @@ export default function Shop({ addToCart }) {
           </div>
         </FrameItem>
         <ButtonFrame>
-            <Notification
-            onClick={() => addToCart(notebook)}
-            />
+          <Notification onClick={() => addToCart(notebook)} />
         </ButtonFrame>
       </RightContainer>
     </ShopContainer>

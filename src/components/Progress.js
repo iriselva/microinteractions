@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const ProgressBar = styled.div`
@@ -19,7 +18,6 @@ const ProgressLine = styled.span`
 export default function Progress({ width = 200, steps = 4 }) {
   const stepWidth = width / (steps - 1);
   const [currentStep, setStep] = useState(0);
-  const [progress, setProgress] = useState(20);
 
   return (
     <div>

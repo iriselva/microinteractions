@@ -9,19 +9,18 @@ const StyledFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-shrink: 0;
 `;
 
 export default function Footer() {
   return (
-      <StyledFooter>
-
-        <motion.a href="https://github.com/iriselva/microinteractions"
-        whileHover={{textDecoration: 'underline'}}
-        >Git Repository</motion.a>
-
-        </StyledFooter>
-  )
-  
-  
+    <StyledFooter>
+      <motion.a
+        href="https://github.com/iriselva/microinteractions"
+        whileHover={{ textDecoration: "underline" }}
+      >
+        Git Repository
+      </motion.a>
+    </StyledFooter>
+  );
 }

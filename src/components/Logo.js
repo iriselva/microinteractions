@@ -19,7 +19,7 @@ function Logo(props) {
             dragConstraints={{left: 0, top: 0, right: 0, bottom: 0}}
             dragElastic={1}
                 >
-            <path fill="#C4C4C4" d="M14 8h52v52H14z" 
+            <path fill="#C2D1CE" d="M14 8h52v52H14z" 
             />
               <circle cx={2} cy={48} r={2} fill="#373737" />
               <circle cx={2} cy={60} r={2} fill="#373737" />

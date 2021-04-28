@@ -10,6 +10,7 @@ export const getStoredNotebooks = () => {
   }
 };
 
+// adding notebook to local storage
 export const addNotebook = (notebook) => {
   const storedItems = getStoredNotebooks();
   const updatedItems = [...storedItems, { ...notebook, id: uuidv4() }];
@@ -21,6 +22,7 @@ export const addNotebook = (notebook) => {
   }
 };
 
+// removing from local storage
 export const removeNotebook = ({ id }) => {
   const storedItems = getStoredNotebooks();
   const updatedItems = storedItems.filter((notebook) => notebook.id !== id);
@@ -32,10 +34,12 @@ export const removeNotebook = ({ id }) => {
   }
 };
 
+// removing all from local storage
 export const clearCache = () => {
   localStorage.removeItem("notebooks");
 };
 
+//unique id for each item
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,

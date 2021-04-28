@@ -1,6 +1,9 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 
+
+/* To change book background */
+
 function Book({ color = "#E7BB7A", height = 400 }) {
   const prevColorRef = React.useRef();
   React.useEffect(() => {

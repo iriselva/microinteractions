@@ -6,49 +6,48 @@ const StyledNotification = styled(motion.div)`
   border: 1px solid #373737;
   box-shadow: 1px 3px 5px 1px rgb(0 0 0 / 36%);
   padding: 16px;
-  background-color: #E7BB7A;
+  background-color: #e7bb7a;
   position: fixed;
   top: 100px;
   right: 20px;
 `;
 
 const Container = styled(motion.div)`
-    position: relative;
+  position: relative;
 `;
 
-const Notification = ({onClick}) => {
+const Notification = ({ onClick }) => {
   return (
     <div>
       <AnimatePresence>
-        <Popup onClick={onClick}/>
+        <Popup onClick={onClick} />
       </AnimatePresence>
     </div>
   );
-}
+};
 
-const Popup = ({onClick}) => {
+const Popup = ({ onClick }) => {
   const [isNotification, setNotification] = useState(false);
   const timeoutRef = useRef();
 
   const toggleNotification = () => {
     setNotification(true);
     clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(()=> {
-        setNotification(false)
-    },3000 )
-  }
-  
-  
+    timeoutRef.current = setTimeout(() => {
+      setNotification(false);
+    }, 3000);
+  };
 
   return (
     <Container>
-      <motion.button 
+      <motion.button
         onClick={() => {
-            toggleNotification();
-            onClick();
+          toggleNotification();
+          onClick();
         }}
         whileHover={{ scale: 1.1, backgroundColor: "#E7BB7A" }}
-        >Add to cart
+      >
+        Add to cart
       </motion.button>
       <div>
         <AnimatePresence>
@@ -67,6 +66,6 @@ const Popup = ({onClick}) => {
       </div>
     </Container>
   );
-}
+};
 
 export default Notification;
