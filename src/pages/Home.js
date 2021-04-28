@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Blank from "../images/Blank.svg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { colors } from "../components/List"
-import Book from "../components/Book"
-
+import { colors } from "../components/List";
+import Book from "../components/Book";
 
 const HomeContainer = styled(motion.div)`
   position: relative;
@@ -67,15 +66,15 @@ const containerVariants = {
 export default function Home() {
   const [bookColorIndex, setBookColorIndex] = useState(0);
   const setNextColor = (change) => {
-    let newIndex = bookColorIndex + change
+    let newIndex = bookColorIndex + change;
     if (newIndex < 0) {
-      setBookColorIndex(colors.length - 1)
-    } else if (newIndex > colors.length -1) {
-      setBookColorIndex(0)
+      setBookColorIndex(colors.length - 1);
+    } else if (newIndex > colors.length - 1) {
+      setBookColorIndex(0);
     } else {
-      setBookColorIndex(newIndex)
+      setBookColorIndex(newIndex);
     }
-  }
+  };
 
   return (
     <HomeContainer
@@ -90,7 +89,11 @@ export default function Home() {
         <p>Discover your new favorite notebook in four different styles</p>
         <div>
           <Link to="/shop">
-            <motion.button variants={buttonVariants} whileHover="hover">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap={{ scale: 0.9 }}
+            >
               Order now!
             </motion.button>
           </Link>
@@ -99,17 +102,20 @@ export default function Home() {
 
       <ImageContainer>
         <Arrows
-        onClick={() => setNextColor(-1)}
-        whileHover={{scale: 1.1, x: -2}}
-        >◀</Arrows>
-        <Book 
-        height={300}
-        color={colors[bookColorIndex]?.value}
-        />
+          onClick={() => setNextColor(-1)}
+          whileHover={{ scale: 1.1, x: -2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          ◀
+        </Arrows>
+        <Book height={300} color={colors[bookColorIndex]?.value} />
         <Arrows
-        onClick={() => setNextColor(1)}
-        whileHover={{scale: 1.1, x: 2}}
-        >▶</Arrows>
+          onClick={() => setNextColor(1)}
+          whileHover={{ scale: 1.1, x: 2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          ▶
+        </Arrows>
       </ImageContainer>
     </HomeContainer>
   );

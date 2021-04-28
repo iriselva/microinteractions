@@ -46,6 +46,7 @@ const Popup = ({ onClick }) => {
           onClick();
         }}
         whileHover={{ scale: 1.1, backgroundColor: "#E7BB7A" }}
+        whileTap={{ scale: 0.9 }}
       >
         Add to cart
       </motion.button>

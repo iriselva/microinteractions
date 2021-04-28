@@ -94,6 +94,7 @@ export default function Cart({ removeFromCart, clearCart }) {
               clearCart();
             }}
             whileHover={{ scale: 1.1, backgroundColor: "#E7BB7A" }}
+            whileTap={{ scale: 0.9 }}
           >
             Confirm Purchase
           </motion.button>
