@@ -34,7 +34,7 @@ const Outline = styled(motion.div)`
 export default function List({ addColor, notebook }) {
   useEffect(() => {
     addColor(colors[0]);
-  }, []);
+  }, [addColor]);
 
   return (
     <div>
@@ -58,7 +58,11 @@ export default function List({ addColor, notebook }) {
 
 function Item({ color, isSelected, onClick }) {
   return (
-    <StyledLi onClick={onClick} style={{ backgroundColor: color }} whileHover={{scale: 1.2}}>
+    <StyledLi
+      onClick={onClick}
+      style={{ backgroundColor: color }}
+      whileHover={{ scale: 1.2 }}
+    >
       {isSelected && (
         <Outline
           layoutId="outline"
@@ -83,4 +87,3 @@ const spring = {
   stiffness: 500,
   damping: 30,
 };
-

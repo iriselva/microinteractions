@@ -43,7 +43,7 @@ const PaperIcon = styled.img`
 export default function PaperStyle({ addPaper, notebook }) {
   useEffect(() => {
     addPaper(papers[0]);
-  }, []);
+  }, [addPaper]);
 
   return (
     <div>
@@ -67,9 +67,7 @@ export default function PaperStyle({ addPaper, notebook }) {
 
 function Item({ paper, isSelected, onClick }) {
   return (
-    <StyledLi onClick={onClick}
-      whileHover={{scale: 1.2}}
-    >
+    <StyledLi onClick={onClick} whileHover={{ scale: 1.2 }}>
       <PaperIcon src={paper} />
       {isSelected && (
         <Outline
