@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import styled from "styled-components";
 import React from "react";
@@ -31,11 +30,7 @@ const Outline = styled(motion.div)`
   border: 6px solid white;
 `;
 
-export default function List({ addColor, notebook }) {
-  useEffect(() => {
-    addColor(colors[0]);
-  }, [addColor]);
-
+export default function List({ addColor, notebook, colors }) {
   return (
     <div>
       <AnimateSharedLayout>
@@ -74,13 +69,6 @@ function Item({ color, isSelected, onClick }) {
     </StyledLi>
   );
 }
-
-export const colors = [
-  { name: "Yellow", value: "#E7BB7A" },
-  { name: "Green", value: "#C2D1CE" },
-  { name: "Brown", value: "#BFAEA9" },
-  { name: "Black", value: "#373737" },
-];
 
 const spring = {
   type: "spring",

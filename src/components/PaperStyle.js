@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import styled from "styled-components";
 import React from "react";
-import Blanked from "../images/Blanked.svg";
-import Lined from "../images/Lined.svg";
-import Dotted from "../images/Dotted.svg";
-import Squared from "../images/Squared.svg";
 
 const StyledUl = styled.ul`
   list-style: none;
@@ -40,11 +35,7 @@ const PaperIcon = styled.img`
   height: 28px;
 `;
 
-export default function PaperStyle({ addPaper, notebook }) {
-  useEffect(() => {
-    addPaper(papers[0]);
-  }, [addPaper]);
-
+export default function PaperStyle({ addPaper, notebook, papers }) {
   return (
     <div>
       <AnimateSharedLayout>
@@ -80,13 +71,6 @@ function Item({ paper, isSelected, onClick }) {
     </StyledLi>
   );
 }
-
-const papers = [
-  { name: "Blank", value: Blanked },
-  { name: "Lined", value: Lined },
-  { name: "Squared", value: Squared },
-  { name: "Dotted", value: Dotted },
-];
 
 const spring = {
   type: "spring",

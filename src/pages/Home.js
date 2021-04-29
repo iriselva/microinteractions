@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Blank from "../images/Blank.svg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { colors } from "../components/List";
+import { colors } from "./Shop";
 import Book from "../components/Book";
 
 const HomeContainer = styled(motion.div)`

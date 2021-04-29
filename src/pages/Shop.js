@@ -5,6 +5,10 @@ import styled from "styled-components";
 import PaperStyle from "../components/PaperStyle";
 import Dropdown from "../components/Dropdown";
 import Notification from "../components/Notification";
+import Blanked from "../images/Blanked.svg";
+import Lined from "../images/Lined.svg";
+import Dotted from "../images/Dotted.svg";
+import Squared from "../images/Squared.svg";
 
 const ShopContainer = styled.div`
   display: flex;
@@ -45,15 +49,25 @@ const ButtonFrame = styled.div`
   padding: 2rem;
 `;
 
-export default function Shop({ addToCart }) {
-  const [notebook, setNotebook] = useState({ color: null, paper: null });
-  const addColor = (color) => {
-    setNotebook((current) => ({ ...current, color }));
-  };
+export const colors = [
+  { name: "Yellow", value: "#E7BB7A" },
+  { name: "Green", value: "#C2D1CE" },
+  { name: "Brown", value: "#BFAEA9" },
+  { name: "Black", value: "#373737" },
+];
 
-  const addPaper = (paper) => {
-    setNotebook((current) => ({ ...current, paper }));
-  };
+const paperStyles = [
+  { name: "Blank", value: Blanked },
+  { name: "Lined", value: Lined },
+  { name: "Squared", value: Squared },
+  { name: "Dotted", value: Dotted },
+];
+
+export default function Shop({ addToCart }) {
+  const [notebook, setNotebook] = useState({
+    color: colors[0],
+    paper: paperStyles[0],
+  });
 
   return (
     <ShopContainer>
@@ -68,13 +82,25 @@ export default function Shop({ addToCart }) {
         <FrameItem>
           <h4>Choose color</h4>
           <div>
-            <List addColor={addColor} notebook={notebook} />
+            <List
+              addColor={(color) => {
+                setNotebook((current) => ({ ...current, color }));
+              }}
+              colors={colors}
+              notebook={notebook}
+            />
           </div>
         </FrameItem>
         <FrameItem>
           <h4>Choose Paper style</h4>
           <div>
-            <PaperStyle addPaper={addPaper} notebook={notebook} />
+            <PaperStyle
+              addPaper={(paper) => {
+                setNotebook((current) => ({ ...current, paper }));
+              }}
+              papers={paperStyles}
+              notebook={notebook}
+            />
           </div>
         </FrameItem>
         <ButtonFrame>
