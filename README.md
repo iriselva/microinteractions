@@ -5,7 +5,7 @@ For this project I used React and Framer Motion to create an example site for my
 
 ## Files
 + [Components](./src/components)
-+ [Pages](./stc/pages)
++ [Pages](./src/pages)
 + [Utils](./src/utils)
 
 ## Live version
